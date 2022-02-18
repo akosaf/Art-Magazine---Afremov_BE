@@ -13,7 +13,7 @@ public class Connect {
         lines[0] = "spring.datasource.url=jdbc:postgresql://localhost:5432/artmagazine";
         lines[1] = "spring.datasource.username=" + user;
         lines[2] = "spring.datasource.password=" + password;
-        lines[3] = "spring.jpa.hibernate.ddl-auto=create-drop";
+        lines[3] = "spring.jpa.hibernate.ddl-auto=none";
         lines[4] = "spring.jpa.show-sql=true";
         lines[5] = "spring.jpa.properities.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect";
         lines[6] = "spring.jpa.properities.hibernate.format_sql=true";

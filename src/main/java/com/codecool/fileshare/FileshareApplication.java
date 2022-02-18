@@ -8,18 +8,12 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @SpringBootApplication
-//@RestController
 public class FileshareApplication {
 
     public static void main(String[] args) {
         new input.Menu().mainMenu();
-//        SpringApplication.run(FileshareApplication.class, args);
+        SpringApplication.run(FileshareApplication.class, args);
+        new input.Menu().mainMenu();
     }
 
-//    @GetMapping
-//    public List<String> hello() {
-//        return List.of(
-//                "hello", "world"
-//        );
-//    }
 }

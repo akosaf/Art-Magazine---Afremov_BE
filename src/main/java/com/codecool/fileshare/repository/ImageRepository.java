@@ -4,4 +4,5 @@ public interface ImageRepository {
     public String storeImage(String category, String content);
     public String readImage(String uuid);
 
+    void findById(String id);
 }

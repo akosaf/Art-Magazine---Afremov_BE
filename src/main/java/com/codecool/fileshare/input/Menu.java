@@ -1,5 +1,7 @@
 package input;
 
+import com.codecool.fileshare.requests.Request;
+import com.codecool.fileshare.controller.ConsoleController;
 import display.Display;
 
 import java.util.Scanner;
@@ -8,6 +10,8 @@ import static com.codecool.fileshare.connect.Connect.createConnection;
 
 public class Menu {
     Scanner scanner = new Scanner(System.in);
+    ConsoleController consoleController = new ConsoleController();
+    Request request = new Request();
 
     private Display display = new Display();
 
@@ -37,12 +41,14 @@ public class Menu {
                 case CONNECT_DATABASE:
                     connectDb();
                     System.out.println("connecting...");
-                    break;
+                    return;
                 case CHECK_DATABASE:
-                    System.out.println("checking");
+                    request.getRequest();
                     break;
                 case DOWNLOAD:
-                    System.out.println("downloading");
+                    System.out.println("ID:");
+//                    consoleController.getImage("5");
+                    request.getRequest(scanner.nextInt());
                     break;
                 case UPLOAD:
                     System.out.println("uploading");

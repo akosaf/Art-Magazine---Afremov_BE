@@ -19,4 +19,9 @@ public class ImageFileRepository implements ImageRepository{
         // service and change to @Qualifier("file")
         return null;
     }
+
+    @Override
+    public void findById(String id) {
+
+    }
 }

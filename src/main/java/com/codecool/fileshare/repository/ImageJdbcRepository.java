@@ -21,6 +21,11 @@ public class ImageJdbcRepository implements ImageRepository{
     public String readImage(String uuid) {
         // implement readImage from database here
         // return base64 encoded image
-        return null;
+        return "content will be here";
+    }
+
+    @Override
+    public void findById(String id) {
+
     }
 }

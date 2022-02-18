@@ -1,34 +1,41 @@
 package com.codecool.fileshare.controller;
 
-import com.codecool.fileshare.dto.ImageDTO;
-import com.codecool.fileshare.service.ImageService;
+import com.codecool.fileshare.dto.tables.Images;
 import com.codecool.fileshare.service.ImagesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
-@RequestMapping(value = "/images")
-public class ImageController {
+@RequestMapping(value = "/console")
+public class ConsoleController {
 
     @Autowired
-    ImageService imageService;
-
+    ImagesService imagesService;
+/*
     @PostMapping("/{category}")
     public String storeImage(@RequestBody ImageDTO imageDTO, @PathVariable("category") String category){
-        return imageService.storeImage(imageDTO,category);
+        return imagesService.storeImage(imageDTO,category);
     }
-
+*//*
     @GetMapping("/{uuid}")
     public ImageDTO getImage(@PathVariable("uuid") String uuid){
-        return imageService.getImage(uuid);
+        return imagesService.getImages(uuid);
+    }*/
+    @GetMapping()
+    public List<Images> getImage(){
+        return imagesService.getImages();
     }
-
+    @GetMapping("/{uuid}")
+    public Optional<Images> getImage(@PathVariable("uuid") Integer uuid){
+        return imagesService.getImages(uuid);
+    }
+/*
     @GetMapping
     public List<String> hello() {
         return List.of("hello", "world");
     }
-
+*/
 }
