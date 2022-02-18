@@ -4,10 +4,12 @@ import display.Display;
 
 import java.util.Scanner;
 
+import static com.codecool.fileshare.connect.Connect.createConnection;
+
 public class Menu {
+    Scanner scanner = new Scanner(System.in);
 
     private Display display = new Display();
-    Scanner scanner = new Scanner(System.in);
 
     public enum MainMenu {
         CONNECT_DATABASE,
@@ -33,12 +35,17 @@ public class Menu {
 
             switch (menuSelection) {
                 case CONNECT_DATABASE:
+                    connectDb();
+                    System.out.println("connecting...");
                     break;
                 case CHECK_DATABASE:
+                    System.out.println("checking");
                     break;
                 case DOWNLOAD:
+                    System.out.println("downloading");
                     break;
                 case UPLOAD:
+                    System.out.println("uploading");
                     break;
                 case QUERY_EXECUTION:
                     getQueryMenuInput(display);
@@ -47,6 +54,14 @@ public class Menu {
             }
         } while (menuSelection != menuSelection.QUIT);
         display.printQuit();
+    }
+
+    private void connectDb() {
+        String username;
+        System.out.println("Username:");
+        username = scanner.nextLine();
+        System.out.println("Password:");
+        createConnection(username, scanner.nextLine());
     }
 
     public MainMenu getMainMenuInput(Display display) {
