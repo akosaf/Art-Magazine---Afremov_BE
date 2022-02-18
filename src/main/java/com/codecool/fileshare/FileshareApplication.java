@@ -11,9 +11,9 @@ import java.util.List;
 //@RestController
 public class FileshareApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(FileshareApplication.class, args);
-    }
+   // public static void main(String[] args) {
+  //      SpringApplication.run(FileshareApplication.class, args);
+  //  }
 
 //    @GetMapping
 //    public List<String> hello() {
