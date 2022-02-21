@@ -19,6 +19,7 @@ public class Images {
             generator = "image_sequence"
     )
     private int image_id;
+    private String title;
     private String content;
     private int category_id;
     private int artist_id;

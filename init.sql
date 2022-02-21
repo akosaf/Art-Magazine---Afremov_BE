@@ -2,6 +2,7 @@ CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
 CREATE TABLE images (
     image_id int,
+    title varchar(255),
     content varchar(255),
     category_id int,
     artist_id int,

@@ -1,11 +1,16 @@
 package com.codecool.fileshare.service;
 
 import com.codecool.fileshare.dto.ImageDTO;
+import com.codecool.fileshare.dto.ImagesDTO;
+import com.codecool.fileshare.dto.tables.Images;
 import com.codecool.fileshare.repository.ImageJdbcRepository;
 import com.codecool.fileshare.repository.ImageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class ImageService {
@@ -25,4 +30,10 @@ public class ImageService {
     public void deleteImage(String id) {
         imageRepository.findById(id);
     }
+
+    public List<Images> getImagesByUser(String user) {
+        return imageRepository.getAllImages();
+    }
+
+    public void likeImage(ImagesDTO imagesDTO, String user) {}
 }

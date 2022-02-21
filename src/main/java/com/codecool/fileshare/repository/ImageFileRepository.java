@@ -1,6 +1,9 @@
 package com.codecool.fileshare.repository;
 
+import com.codecool.fileshare.dto.tables.Images;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 @Component("file")
 public class ImageFileRepository implements ImageRepository{
@@ -23,5 +26,10 @@ public class ImageFileRepository implements ImageRepository{
     @Override
     public void findById(String id) {
 
+    }
+
+    @Override
+    public List<Images> getAllImages() {
+        return null;
     }
 }
