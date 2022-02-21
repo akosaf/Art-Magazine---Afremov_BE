@@ -5,8 +5,8 @@ import lombok.Data;
 import javax.persistence.*;
 
 @Data
-@Entity
-@Table
+@Entity(name = "Images")
+@Table(name = "Images")
 public class Images {
     @Id
     @SequenceGenerator(

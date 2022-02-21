@@ -32,6 +32,7 @@ public class ImageService {
     }
 
     public List<Images> getImagesByUser(String user) {
+        System.out.println("executing query...");
         return imageRepository.getAllImages();
     }
 

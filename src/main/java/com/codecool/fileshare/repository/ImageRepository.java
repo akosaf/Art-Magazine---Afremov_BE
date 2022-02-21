@@ -15,14 +15,14 @@ public interface ImageRepository {
 
     void findById(String id);
 
-//    @Query("SELECT i FROM public.Images i")
-//    List<Images> getAllImages();
-
-    @Query("SELECT i FROM public.images i\n" +
-            "JOIN public.favourites f\n" +
-            "ON i.image_id = f.image_id\n" +
-            "JOIN public.users u\n" +
-            "ON f.user_id = u.user_id\n" +
-            "WHERE u.user_name ILIKE 'gsg';")
+    @Query(value = "SELECT i FROM Images i", nativeQuery = true)
     List<Images> getAllImages();
+
+//    @Query("SELECT i FROM public.images i " +
+//            "JOIN public.favourites f " +
+//            "ON i.image_id = f.image_id " +
+//            "JOIN public.users u " +
+//            "ON f.user_id = u.user_id " +
+//            "WHERE u.user_name LIKE 'gsg';")
+//    List<Images> getAllImages();
 }
