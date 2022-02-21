@@ -63,11 +63,12 @@ public class Menu {
     }
 
     private void connectDb() {
-        String username;
-        System.out.println("Username:");
-        username = scanner.nextLine();
-        System.out.println("Password:");
-        createConnection(username, scanner.nextLine());
+//        String username;
+//        System.out.println("Username:");
+//        username = scanner.nextLine();
+//        System.out.println("Password:");
+//        createConnection(username, scanner.nextLine());
+        createConnection("postgres", "h3tEg2tGE");
     }
 
     public MainMenu getMainMenuInput(Display display) {

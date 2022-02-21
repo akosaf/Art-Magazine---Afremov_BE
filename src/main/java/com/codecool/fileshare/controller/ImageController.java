@@ -1,6 +1,7 @@
 package com.codecool.fileshare.controller;
 
 import com.codecool.fileshare.dto.ImageDTO;
+import com.codecool.fileshare.dto.tables.Artists;
 import com.codecool.fileshare.service.ImageService;
 import com.codecool.fileshare.service.ImagesService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +29,7 @@ public class ImageController {
 
     @GetMapping
     public List<String> hello() {
-        return List.of("hello", "world");
+        return imageService.getImages();
     }
 
 }

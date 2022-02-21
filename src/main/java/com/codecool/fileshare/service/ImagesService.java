@@ -10,6 +10,7 @@ import java.util.Optional;
 
 @Service
 public class ImagesService {
+
     private final ImagesRepository imagesRepository;
 
     @Autowired
