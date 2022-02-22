@@ -1,38 +1,30 @@
-CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
-
-CREATE TABLE images (
-    image_id int,
+CREATE TABLE IF NOT EXISTS Images (
+    image_id SERIAL PRIMARY KEY NOT NULL,
+    category_id int,
+    artist_id int,
     title varchar(255),
-    content varchar(255),
-    category_id int,
-    artist_id int,
-    PRIMARY KEY (image_id)
+    content varchar(255)
 );
 
-CREATE TABLE categories (
-    category_id int,
-    category_name varchar(255),
-	PRIMARY KEY (category_id)
+CREATE TABLE IF NOT EXISTS categories (
+    category_id SERIAL PRIMARY KEY NOT NULL,
+    category_name varchar(255)
 );
 
-CREATE TABLE users (
+CREATE TABLE IF NOT EXISTS users (
+    user_id SERIAL PRIMARY KEY NOT NULL,
+    user_name varchar(255)
+);
+
+CREATE TABLE IF NOT EXISTS artists (
+    artist_id SERIAL PRIMARY KEY NOT NULL,
+    artist_name varchar(255)
+);
+
+CREATE TABLE IF NOT EXISTS favourites (
+    fav_id SERIAL PRIMARY KEY NOT NULL,
     user_id int,
-    user_name varchar(255),
-    password varchar(255),
-	PRIMARY KEY (user_id)
-);
-
-CREATE TABLE artists (
-    artist_id int,
-    artist_name varchar(255),
-	PRIMARY KEY (artist_id)
-);
-
-CREATE TABLE favourites (
-    fav_id int,
-    user_id int,
-    image_id int,
-	PRIMARY KEY (fav_id)
+    image_id int
 );
 
 ALTER TABLE images
