@@ -6,7 +6,6 @@ import com.codecool.fileshare.repository.ImageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,26 +27,33 @@ public class ImageService {
     public void likeImage(ImagesDTO imagesDTO, String user) {
         Integer userId = imageRepository.getUserIdByName(user);
         if (userId == null) {
-            imageRepository.insertUser(user);
+            try {
+                imageRepository.insertUser(user);
+            } catch (Exception e) {}
             userId = imageRepository.getUserIdByName(user);
         }
-
         Integer categoryId = imageRepository.getCategoryIdByName(imagesDTO.getCategory());
         if (categoryId == null) {
-            imageRepository.insertCategory(imagesDTO.getCategory());
+            try {
+                imageRepository.insertCategory(imagesDTO.getCategory());
+            } catch (Exception e) {}
             categoryId = imageRepository.getCategoryIdByName(imagesDTO.getCategory());
         }
-
         Integer artistId = imageRepository.getArtistIdByName(imagesDTO.getArtist());
         if (artistId == null) {
-            imageRepository.insertArtist(imagesDTO.getArtist());
+            try {
+                imageRepository.insertArtist(imagesDTO.getArtist());
+            } catch (Exception e) {}
             artistId = imageRepository.getArtistIdByName(imagesDTO.getArtist());
         }
+        Images image = imageRepository.getImageByTitle(imagesDTO.getTitle());
+        try {
+            if (image == null) imageRepository.insertImage(imagesDTO.getImage_id(), imagesDTO.getTitle(), imagesDTO.getContent(), categoryId, artistId);
+        } catch (Exception e) {}
 
-        Images image = imageRepository.getImageIdByName(imagesDTO.getTitle());
-        if (image == null) imageRepository.insertImage(imagesDTO.getImage_id(), imagesDTO.getTitle(), imagesDTO.getContent(), categoryId, artistId);
-
-        imageRepository.likeImage(imagesDTO.getImage_id(), userId);
+        try {
+            imageRepository.likeImage(imagesDTO.getImage_id(), userId);
+        } catch (Exception e) {}
 
     }
 
