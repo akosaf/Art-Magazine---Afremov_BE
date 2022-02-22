@@ -5,6 +5,11 @@ import lombok.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ImageDTO {
+public class ImagesDTO {
+    int image_id;
+    String title;
     String content;
+    String category;
+    String artist;
+
 }
