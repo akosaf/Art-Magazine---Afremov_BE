@@ -9,11 +9,19 @@ import javax.persistence.*;
 @Table
 public class Categories {
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @SequenceGenerator(
+            name = "category_sequence",
+            sequenceName = "category_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "category_sequence"
+    )
     @Column(
             updatable = false
     )
-    private int categoryId;
+    private Long categoryId;
     private String categoryName;
 
     public Categories(String categoryName) {

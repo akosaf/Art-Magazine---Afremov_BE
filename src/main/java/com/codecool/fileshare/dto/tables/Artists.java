@@ -9,10 +9,22 @@ import javax.persistence.*;
 @Table
 public class Artists {
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @SequenceGenerator(
+            name = "artist_sequence",
+            sequenceName = "artist_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "artist_sequence"
+    )
     @Column(
             updatable = false
     )
-    private int artistId;
+    private Long artistId;
     private String artistName;
+
+    public Artists(String artistName) {
+        this.artistName = artistName;
+    }
 }
