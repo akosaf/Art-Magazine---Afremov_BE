@@ -6,19 +6,15 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Optional;
 
 @Repository
 public interface ImageRepository extends JpaRepository<Images, Integer> {
-//    public String storeImage(String category, String content);
-//    public String readImage(String uuid);
-
-    //void findById(String id);
 
     @Query("SELECT i FROM Images i")
     List<Images> getAllImages();
 
-    List<Images> findByCategoryId(int categoryId);
+//    List<Images> findByCategoryId(int categoryId);
+
 //    @Query("SELECT i FROM public.images i " +
 //            "JOIN public.favourites f " +
 //            "ON i.image_id = f.image_id " +

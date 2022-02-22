@@ -1,4 +1,4 @@
-package display;
+package com.codecool.fileshare.display;
 
 public class Display {
 

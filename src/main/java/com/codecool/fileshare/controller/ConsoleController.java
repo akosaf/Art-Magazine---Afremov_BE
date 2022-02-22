@@ -14,16 +14,7 @@ public class ConsoleController {
 
     @Autowired
     ImagesService imagesService;
-/*
-    @PostMapping("/{category}")
-    public String storeImage(@RequestBody ImageDTO imageDTO, @PathVariable("category") String category){
-        return imagesService.storeImage(imageDTO,category);
-    }
-*//*
-    @GetMapping("/{uuid}")
-    public ImageDTO getImage(@PathVariable("uuid") String uuid){
-        return imagesService.getImages(uuid);
-    }*/
+
     @GetMapping()
     public List<Images> getImage(){
         return imagesService.getImages();
@@ -32,10 +23,4 @@ public class ConsoleController {
     public Optional<Images> getImage(@PathVariable("uuid") Integer uuid){
         return imagesService.getImages(uuid);
     }
-/*
-    @GetMapping
-    public List<String> hello() {
-        return List.of("hello", "world");
-    }
-*/
 }

@@ -1,8 +1,8 @@
-package input;
+package com.codecool.fileshare.input;
 
-import com.codecool.fileshare.requests.Request;
 import com.codecool.fileshare.controller.ConsoleController;
-import display.Display;
+import com.codecool.fileshare.display.Display;
+import com.codecool.fileshare.requests.Request;
 
 import java.util.Scanner;
 

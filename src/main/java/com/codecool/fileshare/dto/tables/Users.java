@@ -23,12 +23,5 @@ public class Users {
 //            updatable = false
 //    )
     private int userId;
-//    @Column(
-//            name = "user-name"
-//    )
     private String userName;
-//    @Column(
-//            name = "password"
-//    )
-//    private String password;
 }
