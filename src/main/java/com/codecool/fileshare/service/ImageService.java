@@ -16,9 +16,9 @@ import java.util.List;
 public class ImageService {
 
     @Autowired
-    @Qualifier("jdbc")
+    //@Qualifier("jdbc")
     ImageRepository imageRepository;
-
+/*
     public String storeImage(ImageDTO imageDTO, String category){
         return imageRepository.storeImage(category, imageDTO.getContent());
     }
@@ -28,9 +28,9 @@ public class ImageService {
     }
 
     public void deleteImage(String id) {
-        imageRepository.findById(id);
+        imageRepository.findById(Integer.valueOf(id));
     }
-
+*/
     public List<Images> getImagesByUser(String user) {
         System.out.println("executing query...");
         return imageRepository.getAllImages();

@@ -38,7 +38,6 @@ public class ImageController {
         imageService.likeImage(imagesDTO,user);
     }
 
-
     @GetMapping
     public List<String> hello() {
         return List.of("hello", "world");

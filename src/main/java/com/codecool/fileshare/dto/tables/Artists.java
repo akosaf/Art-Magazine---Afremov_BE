@@ -9,15 +9,6 @@ import javax.persistence.*;
 @Table
 public class Artists {
     @Id
-    @SequenceGenerator(
-            name = "artist_sequence",
-            sequenceName = "artist_sequence",
-            allocationSize = 1
-    )
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "artist_sequence"
-    )
-    private int artist_id;
-    private String artist_name;
+    private int artistId;
+    private String artistName;
 }
