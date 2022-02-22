@@ -8,3 +8,5 @@ POST http requests working.
 v1.02
 Upgraded to 42.3.3 version of postgresql to avoid vulnerability problems.
 
+v1.03
+init.sql updated.
