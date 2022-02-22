@@ -16,7 +16,7 @@ public class ImageController {
     ImageService imageService;
 
     @GetMapping("/{user}")
-    public List<Images> getImagesByUser(@PathVariable("user") String user){
+    public List<ImagesDTO> getImagesByUser(@PathVariable("user") String user){
         return imageService.getImagesByUser(user);
     }
 
