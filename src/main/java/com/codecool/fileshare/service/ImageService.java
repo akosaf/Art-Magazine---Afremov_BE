@@ -18,7 +18,7 @@ public class ImageService {
 
     public List<ImagesDTO> getImagesByUser(String user) {
         System.out.println("executing query...");
-        List<List<String>> list = imageRepository.getAllImages();
+        List<List<String>> list = imageRepository.getAllImages(user);
 //        list.forEach(System.out::println);
         List<ImagesDTO> dtoList = new ArrayList<>();
         for (List<String> strings : list) {
