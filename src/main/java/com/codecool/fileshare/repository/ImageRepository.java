@@ -1,12 +1,12 @@
 package com.codecool.fileshare.repository;
 
-import com.codecool.fileshare.dto.ImagesDTO;
 import com.codecool.fileshare.dto.tables.Images;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.awt.*;
 import java.util.List;
 
 @Repository
@@ -24,5 +24,47 @@ public interface ImageRepository extends JpaRepository<Images, Integer> {
             "JOIN Categories c " +
             "ON c.category_id = i.category_id " +
             "WHERE u.user_name = :user", nativeQuery = true)
-    List<List<String>> getAllImages(@Param("user") String user);
+    List<List<String>> getImagesByUser(@Param("user") String user);
+
+    @Query(value = "SELECT a.artist_id FROM Artist a " +
+            "WHERE a.artist_name = :artist", nativeQuery = true)
+    Integer getArtistIdByName(@Param("artist") String artist);
+
+    @Query(value = "INSERT INTO Artist (artist_name) " +
+            "VALUES(:artist)", nativeQuery = true)
+    void insertArtist(@Param("artist") String artist);
+
+    @Query(value = "SELECT c.category_id FROM Categories c " +
+            "WHERE a.artist_name = :category", nativeQuery = true)
+    Integer getCategoryIdByName(@Param("category") String category);
+
+    @Query(value = "INSERT INTO Categories (category_name) " +
+            "VALUES(:category)", nativeQuery = true)
+    void insertCategory(@Param("category") String category);
+
+    @Query(value = "SELECT u.user_id FROM Users u " +
+            "WHERE u.user_name = :user ", nativeQuery = true)
+    Integer getUserIdByName(@Param("user") String user);
+
+    @Query(value = "INSERT INTO Users (user_name) " +
+            "VALUES(:user) ", nativeQuery = true)
+    void insertUser(@Param("user") String user);
+
+    @Query(value = "SELECT i.image_id FROM Images i " +
+            "WHERE i.title = :image ", nativeQuery = true)
+    Images getImageIdByName(@Param("image") String image);
+
+    @Query(value = "INSERT INTO Images (image_id, title, content, artist_id, category_id) " +
+            "VALUES(:image_id, :title, :content, :artist_id, :category_id) ", nativeQuery = true)
+    void insertImage(@Param("image_id") int image_id,
+                     @Param("title") String title,
+                     @Param("content") String content,
+                     @Param("artist_id") int artist_id,
+                     @Param("category_id") int category_id);
+
+    @Query(value = "INSERT INTO Favourites (image_id, user_id) " +
+            "VALUES(:image_id, :user_id) ", nativeQuery = true)
+    void likeImage(@Param("image_id") int image_id, @Param("user_id") int user_id);
+
+
 }

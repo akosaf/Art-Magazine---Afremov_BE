@@ -9,6 +9,10 @@ import javax.persistence.*;
 @Table
 public class Artists {
     @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    @Column(
+            updatable = false
+    )
     private int artistId;
     private String artistName;
 }

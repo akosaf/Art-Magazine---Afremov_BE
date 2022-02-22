@@ -9,19 +9,10 @@ import javax.persistence.*;
 @Table
 public class Users {
     @Id
-//    @SequenceGenerator(
-//            name = "user_sequence",
-//            sequenceName = "user_sequence",
-//            allocationSize = 1
-//    )
-//    @GeneratedValue(
-//            strategy = GenerationType.SEQUENCE,
-//            generator = "user_sequence"
-//    )
-//    @Column(
-//            name = "user-id",
-//            updatable = false
-//    )
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    @Column(
+            updatable = false
+    )
     private int userId;
     private String userName;
 }

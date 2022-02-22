@@ -9,6 +9,14 @@ import javax.persistence.*;
 @Table
 public class Categories {
     @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    @Column(
+            updatable = false
+    )
     private int categoryId;
     private String categoryName;
+
+    public Categories(String categoryName) {
+        this.categoryName = categoryName;
+    }
 }

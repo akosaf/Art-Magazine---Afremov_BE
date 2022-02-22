@@ -1,7 +1,6 @@
 package com.codecool.fileshare.controller;
 
 import com.codecool.fileshare.dto.ImagesDTO;
-import com.codecool.fileshare.dto.tables.Images;
 import com.codecool.fileshare.service.ImageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,8 +14,8 @@ public class ImageController {
     @Autowired
     ImageService imageService;
 
-    @GetMapping("/{user}")
-    public List<ImagesDTO> getImagesByUser(@PathVariable("user") String user){
+    @GetMapping(params = "user")
+    public List<ImagesDTO> getImagesByUser(@RequestParam String user){
         return imageService.getImagesByUser(user);
     }
 
