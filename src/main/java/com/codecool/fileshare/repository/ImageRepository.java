@@ -11,8 +11,6 @@ import java.util.List;
 @Repository
 public interface ImageRepository extends JpaRepository<Images, Integer> {
 
-//    List<Images> findByCategoryId(int categoryId);
-
     @Query(value = "SELECT i.image_id, i.title, i.content, c.category_name, a.artist_name FROM Images i " +
             "JOIN Favourites f " +
             "ON i.image_id = f.image_id " +
@@ -49,8 +47,6 @@ public interface ImageRepository extends JpaRepository<Images, Integer> {
             "VALUES(:user) ", nativeQuery = true)
     void insertUser(@Param("user") String user);
 
-//    @Query(value = "SELECT i FROM Images i " +
-//            "WHERE i.title = :image ", nativeQuery = true)
     Images getImageByTitle(@Param("image") String image);
 
     @Query(value = "INSERT INTO Images (image_id, title, content, artist_id, category_id) " +

@@ -8,8 +8,8 @@ import lombok.*;
 public class ImagesDTO {
     int image_id;
     String title;
-    String content; //url
-    String category; //category-name
-    String artist; //artist-name
+    String content;
+    String category;
+    String artist;
 
 }

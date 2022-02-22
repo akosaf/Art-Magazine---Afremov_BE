@@ -47,7 +47,6 @@ public class Menu {
                     break;
                 case DOWNLOAD:
                     System.out.println("ID:");
-//                    consoleController.getImage("5");
                     request.getRequest(scanner.nextInt());
                     break;
                 case UPLOAD:
@@ -111,7 +110,6 @@ public class Menu {
     public QueryMenu getQueryMenuInput(Display display) {
 
         String choice;
-
 
 
         while (true) {

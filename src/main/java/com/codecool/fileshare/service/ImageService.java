@@ -29,31 +29,37 @@ public class ImageService {
         if (userId == null) {
             try {
                 imageRepository.insertUser(user);
-            } catch (Exception e) {}
+            } catch (Exception e) {
+            }
             userId = imageRepository.getUserIdByName(user);
         }
         Integer categoryId = imageRepository.getCategoryIdByName(imagesDTO.getCategory());
         if (categoryId == null) {
             try {
                 imageRepository.insertCategory(imagesDTO.getCategory());
-            } catch (Exception e) {}
+            } catch (Exception e) {
+            }
             categoryId = imageRepository.getCategoryIdByName(imagesDTO.getCategory());
         }
         Integer artistId = imageRepository.getArtistIdByName(imagesDTO.getArtist());
         if (artistId == null) {
             try {
                 imageRepository.insertArtist(imagesDTO.getArtist());
-            } catch (Exception e) {}
+            } catch (Exception e) {
+            }
             artistId = imageRepository.getArtistIdByName(imagesDTO.getArtist());
         }
         Images image = imageRepository.getImageByTitle(imagesDTO.getTitle());
         try {
-            if (image == null) imageRepository.insertImage(imagesDTO.getImage_id(), imagesDTO.getTitle(), imagesDTO.getContent(), categoryId, artistId);
-        } catch (Exception e) {}
+            if (image == null)
+                imageRepository.insertImage(imagesDTO.getImage_id(), imagesDTO.getTitle(), imagesDTO.getContent(), categoryId, artistId);
+        } catch (Exception e) {
+        }
 
         try {
             imageRepository.likeImage(imagesDTO.getImage_id(), userId);
-        } catch (Exception e) {}
+        } catch (Exception e) {
+        }
 
     }
 

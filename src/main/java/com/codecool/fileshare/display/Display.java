@@ -18,9 +18,11 @@ public class Display {
         }
         System.out.println();
     }
+
     public void printCommandPrompt() {
         System.out.print("Your choice >> ");
     }
+
     public void printQuit() {
         System.out.println("Goodbye!");
     }

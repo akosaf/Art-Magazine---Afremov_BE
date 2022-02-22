@@ -8,7 +8,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class FileshareApplication {
 
     public static void main(String[] args) {
-        //new input.Menu().mainMenu();
         SpringApplication.run(FileshareApplication.class, args);
         new Menu().mainMenu();
     }

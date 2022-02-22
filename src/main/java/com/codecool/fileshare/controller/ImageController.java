@@ -15,18 +15,13 @@ public class ImageController {
     ImageService imageService;
 
     @GetMapping(params = "user")
-    public List<ImagesDTO> getImagesByUser(@RequestParam String user){
+    public List<ImagesDTO> getImagesByUser(@RequestParam String user) {
         return imageService.getImagesByUser(user);
     }
 
     @PostMapping("/{user}")
-    public void likeImage(@RequestBody ImagesDTO imagesDTO, @PathVariable("user") String user){
-        imageService.likeImage(imagesDTO,user);
-    }
-
-    @GetMapping
-    public List<String> hello() {
-        return List.of("hello", "world");
+    public void likeImage(@RequestBody ImagesDTO imagesDTO, @PathVariable("user") String user) {
+        imageService.likeImage(imagesDTO, user);
     }
 
 }

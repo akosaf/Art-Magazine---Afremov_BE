@@ -16,11 +16,12 @@ public class ConsoleController {
     ImagesService imagesService;
 
     @GetMapping()
-    public List<Images> getImage(){
+    public List<Images> getImage() {
         return imagesService.getImages();
     }
+
     @GetMapping("/{uuid}")
-    public Optional<Images> getImage(@PathVariable("uuid") Integer uuid){
+    public Optional<Images> getImage(@PathVariable("uuid") Integer uuid) {
         return imagesService.getImages(uuid);
     }
 }
